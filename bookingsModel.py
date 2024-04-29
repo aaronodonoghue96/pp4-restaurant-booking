@@ -1,4 +1,4 @@
-class BookingsRepository:
+class BookingsModel:
     def __init__(self):
         self.bookings = []
 
