@@ -8,6 +8,12 @@ class BookingsModel:
     def viewBookings(self):
         return self.bookings
 
+    def getBookingById(self, bookingId):
+        for booking in self.bookings:
+            if booking.id == bookingId:
+                return booking
+        return None
+
     def update(self, old_booking, new_booking):
         self.delete(old_booking.id)
         self.add(new_booking)

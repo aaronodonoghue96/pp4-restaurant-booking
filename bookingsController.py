@@ -5,6 +5,9 @@ class BookingsController:
     def viewBookings(self):
         return self.model.viewBookings()
 
+    def getBookingById(self, id):
+        self.model.getBookingById(id);
+
     def placeBooking(self, booking):
         self.model.placeBooking(booking)
 

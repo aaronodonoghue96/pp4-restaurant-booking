@@ -12,9 +12,9 @@ class BookingsView:
         self.controller.placeBooking(booking)
         print("Booking placed")
 
-    def rescheduleBooking(self, id, name, numPeople, date, time):
-        booking = Booking(id, name, numPeople, date, time)
-        self.controller.rescheduleBooking()
+    def rescheduleBooking(self, oldId, newId, name, numPeople, date, time):
+        booking = Booking(newId, name, numPeople, date, time)
+        self.controller.rescheduleBooking(controller.getBookingById(oldId), booking)
         print("Booking resecheduled")
 
     def delete(self, id):
