@@ -24,19 +24,21 @@ class BookingsView:
     # Menu for user input
     def run(self):
         while True:
-            print("1. Get all persons")
-            print("2. Get person by id")
-            print("3. Add person")
-            print("4. Update person")
-            print("5. Delete person")
-            print("6. Get person by name")
-            print("7. Filter person by age")
-            print("8. Exit")
+            print("1. View bookings")
+            print("2. Get booking by id")
+            print("3. Place booking")
+            print("4. Reschedule booking")
+            print("5. Cancel booking")
+            print("6. Quit")
             print("Enter your choice: ", end="")
             choice = int(input())
             if choice == 1:
                 self.viewBookings()
             elif choice == 2:
+                print("Enter the id of the booking you want to see", end="")
+                id = input()
+                self.getBookingById(id)
+            elif choice == 3:
                 print("Enter your booking id, name, party size, date, and time: ", end="")
                 details = input().split()
                 if len(details) < 5:
@@ -48,3 +50,17 @@ class BookingsView:
                     date = details[3]
                     time = details[4]
                     self.placeBooking(id, name, numPeople, date, time)
+            elif choice == 4:
+                print("Enter the id of the booking you want to reschedule")
+                oldId = input()
+                print("Enter your new booking id, name, party size, date, and time: ", end="")
+                details = input().split()
+                if len(details) < 5:
+                    raise Exception("You must provide all details")
+                else:
+                    newId = details[0]
+                    name = details[1]
+                    numPeople = int(details[2])
+                    date = details[3]
+                    time = details[4]
+                    self.rescheduleBooking(oldId, newId, name, numPeople, date, time)
