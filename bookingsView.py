@@ -64,3 +64,9 @@ class BookingsView:
                     date = details[3]
                     time = details[4]
                     self.rescheduleBooking(oldId, newId, name, numPeople, date, time)
+            elif choice == 5:
+                print("Enter the id of the booking you want to cancel")
+                id = input()
+                self.cancelBooking(id)
+            elif choice == 6:
+                break;
