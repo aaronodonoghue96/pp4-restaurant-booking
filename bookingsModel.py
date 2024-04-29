@@ -2,8 +2,8 @@ class BookingsModel:
     def __init__(self):
         self.bookings = []
 
-    def placeBooking(self, bookings):
-        self.bookings.append(person)
+    def placeBooking(self, booking):
+        self.bookings.append(booking)
 
     def viewBookings(self):
         return self.bookings
